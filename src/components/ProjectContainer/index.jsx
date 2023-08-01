@@ -1,10 +1,20 @@
 import styled from 'styled-components'
+import { projects } from '../../data/projects'
 import Project from '../Project'
+
+const ProjectSection = styled.section`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f2f2f2;
+    padding-bottom: 120px;
+`
 
 const ProjectTitleContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 120px;
     margin-bottom: 50px;
 `
 
@@ -20,29 +30,24 @@ const ProjectTitle = styled.h2`
 
 function ProjectContainer() {
     return (
-        <section>
+        <ProjectSection>
             <ProjectTitleContainer>
                 <ProjectBar></ProjectBar>
                 <ProjectTitle>Featured Project</ProjectTitle>
                 <ProjectBar></ProjectBar>
-                <Project
-                    title={'Projet-Estate'}
-                    links={[
-                        {
-                            url: 'https://github.com/Akaiin/Projet-estate',
-                            icon: <i class="fa-brands fa-github"></i>,
-                        },
-                        {
-                            url: 'https://akaiin.github.io/Projet-estate/',
-                            icon: <i class="fa-solid fa-up-right-from-square"></i>,
-                        },
-                    ]}
-                >
-                    Ici est mon projet estate que j'ai crée lors de mon apprentissage du code du maitre pampy
-                    qui ma appris le code
-                </Project>
             </ProjectTitleContainer>
-        </section>
+            {projects.map((project, index) => (
+                <Project
+                    key={index}
+                    title={project.title}
+                    image={project.image}
+                    tags={project.tags}
+                    links={project.links}
+                >
+                    {project.description}
+                </Project>
+            ))}
+        </ProjectSection>
     )
 }
 

@@ -7,7 +7,7 @@ const AboutContainer = styled.section`
     justify-content: center;
     margin-bottom: 200px;
     height: 685px;
-    background: var(--light-grey, #f2f2f2);
+    background: #f2f2f2;
 `
 
 const AboutTitleContainer = styled.div`
