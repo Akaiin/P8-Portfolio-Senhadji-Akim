@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import styled from 'styled-components'
+import Modal from '../Modal'
 
 const FooterContainer = styled.footer`
     display: flex;
@@ -54,6 +56,8 @@ const SocialIcon = styled.i`
 `
 
 function Footer() {
+    const [modal, setModal] = useState(false)
+
     return (
         <FooterContainer id="contact">
             <ContactContainer>
@@ -65,7 +69,8 @@ function Footer() {
                 I am currently seeking employment, and I would appreciate it if you could contact me with any
                 available job opportunities.
             </FooterText>
-            <FooterBtn>Write Message</FooterBtn>
+            <FooterBtn onClick={() => setModal(true)}>Write Message</FooterBtn>
+            <Modal isOpen={modal} setIsOpen={setModal} />
             <FooterSocials>
                 <SocialLink href="https://github.com/Akaiin">
                     <SocialIcon className="fa-brands fa-github"></SocialIcon>
