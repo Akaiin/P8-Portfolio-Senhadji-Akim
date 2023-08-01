@@ -6,7 +6,7 @@ const AboutContainer = styled.section`
     flex-direction: column;
     justify-content: center;
     margin-bottom: 200px;
-    height: 685px;
+    height: 950px;
     background: #f2f2f2;
 `
 

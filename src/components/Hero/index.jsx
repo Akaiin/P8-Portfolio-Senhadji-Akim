@@ -5,7 +5,7 @@ const HeroContainer = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 150px;
+    margin-top: 250px;
     margin-bottom: 150px;
     text-align: center;
     gap: 100px;
@@ -16,15 +16,22 @@ const HeroTitle = styled.h1`
     font-weight: 400;
 `
 
-const HeroArrow = styled.a``
+const HeroText = styled.div`
+    margin-bottom: 75px;
+`
+
+const HeroArrow = styled.a`
+    font-size: 48px;
+    margin-bottom: 150px;
+`
 
 function Hero() {
     return (
         <HeroContainer>
-            <div>
+            <HeroText>
                 <HeroTitle>Hi, I'm Akim Senhadji</HeroTitle>
                 <p>Développeur d'application web</p>
-            </div>
+            </HeroText>
             <HeroArrow href="#about">
                 <i className="fa-solid fa-arrow-down"></i>
             </HeroArrow>

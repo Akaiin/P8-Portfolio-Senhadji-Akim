@@ -30,7 +30,7 @@ const ProjectTitle = styled.h2`
 
 function ProjectContainer() {
     return (
-        <ProjectSection>
+        <ProjectSection id="project">
             <ProjectTitleContainer>
                 <ProjectBar></ProjectBar>
                 <ProjectTitle>Featured Project</ProjectTitle>
