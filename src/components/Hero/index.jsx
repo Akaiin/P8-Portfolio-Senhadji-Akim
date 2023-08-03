@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 const HeroContainer = styled.section`
     display: flex;
@@ -20,19 +20,36 @@ const HeroText = styled.div`
     margin-bottom: 75px;
 `
 
+const movingarrow = keyframes`
+    from {
+        transform: translateY(0px)
+    }
+    to {
+        transform: translateY(50px);
+    }
+`
+
 const HeroArrow = styled.a`
     font-size: 48px;
     margin-bottom: 150px;
+    color: black;
+    animation: ${movingarrow} infinite 1s alternate;
 `
 
-function Hero() {
+function Hero({ scrollToRef, aboutRef }) {
     return (
         <HeroContainer>
             <HeroText>
-                <HeroTitle>Hi, I'm Akim Senhadji</HeroTitle>
+                <HeroTitle>Akim Senhadji</HeroTitle>
                 <p>Développeur d'application web</p>
             </HeroText>
-            <HeroArrow href="#about">
+            <HeroArrow
+                onClick={(e) => {
+                    e.preventDefault()
+                    scrollToRef(aboutRef)
+                }}
+                href="#about"
+            >
                 <i className="fa-solid fa-arrow-down"></i>
             </HeroArrow>
         </HeroContainer>

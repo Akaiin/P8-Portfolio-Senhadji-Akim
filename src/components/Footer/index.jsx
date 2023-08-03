@@ -1,34 +1,24 @@
-import { useState } from 'react'
+import { forwardRef, useState } from 'react'
 import styled from 'styled-components'
 import Modal from '../Modal'
+import SectionTitle from '../SectionTitle'
 
 const FooterContainer = styled.footer`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 100px;
     padding-bottom: 50px;
-`
-
-const ContactContainer = styled.div`
-    display: flex;
-    align-items: center;
-    margin-top: 120px;
-    margin-bottom: 73px;
-`
-
-const ContactBar = styled.div`
-    border: solid 3px black;
-    width: 375px;
-    height: 1px;
-`
-
-const FooterTitle = styled.h2`
-    font-size: 36px;
 `
 
 const FooterText = styled.p`
     text-align: center;
     width: 550px;
+    @media screen and (max-width: 575px) {
+        padding-left: 5%;
+        padding-right: 5%;
+        width: auto;
+    }
 `
 
 const FooterBtn = styled.button`
@@ -55,21 +45,17 @@ const SocialIcon = styled.i`
     font-size: 20px;
 `
 
-function Footer() {
+const Footer = forwardRef(function Footer({}, ref) {
     const [modal, setModal] = useState(false)
 
     return (
-        <FooterContainer id="contact">
-            <ContactContainer>
-                <ContactBar></ContactBar>
-                <FooterTitle>Contact</FooterTitle>
-                <ContactBar></ContactBar>
-            </ContactContainer>
+        <FooterContainer ref={ref} id="contact">
+            <SectionTitle title={`Contact`} />
             <FooterText>
-                I am currently seeking employment, and I would appreciate it if you could contact me with any
-                available job opportunities.
+                Je suis actuellement à la recherche d'un emploi, et je vous serais reconnaissant si vous
+                pouviez me contacter avec toutes les opportunités d'emploi disponibles.
             </FooterText>
-            <FooterBtn onClick={() => setModal(true)}>Write Message</FooterBtn>
+            <FooterBtn onClick={() => setModal(true)}>Me contacter</FooterBtn>
             <Modal isOpen={modal} setIsOpen={setModal} />
             <FooterSocials>
                 <SocialLink href="https://github.com/Akaiin">
@@ -85,6 +71,5 @@ function Footer() {
             <p>Akim Senhadji - 2023</p>
         </FooterContainer>
     )
-}
-
+})
 export default Footer

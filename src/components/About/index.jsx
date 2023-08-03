@@ -1,35 +1,22 @@
+import { forwardRef } from 'react'
 import styled from 'styled-components'
 import image from '../../images/working.webp'
+import SectionTitle from '../SectionTitle'
 
 const AboutContainer = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-bottom: 200px;
+    padding-left: 5%;
     height: 950px;
     background: #f2f2f2;
-`
-
-const AboutTitleContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 50px;
-`
-
-const AboutBar = styled.div`
-    border: solid 3px black;
-    width: 375px;
-    height: 1px;
-`
-
-const AboutTitle = styled.h2`
-    font-size: 36px;
 `
 
 const AboutContent = styled.div`
     display: flex;
     justify-content: center;
+    flex-wrap: wrap-reverse;
     gap: 79px;
 `
 
@@ -37,20 +24,23 @@ const AboutTextContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    @media screen and (max-width: 550px) {
+        align-items: center;
+    }
 `
 
 const AboutText = styled.p`
     width: 500px;
+    @media screen and (max-width: 550px) {
+        width: 90%;
+        font-size: 14px;
+    }
 `
 
-function About() {
+const About = forwardRef(function About({}, ref) {
     return (
-        <AboutContainer id="about">
-            <AboutTitleContainer>
-                <AboutBar></AboutBar>
-                <AboutTitle>About</AboutTitle>
-                <AboutBar></AboutBar>
-            </AboutTitleContainer>
+        <AboutContainer ref={ref} id="about">
+            <SectionTitle title={`À Propos`} />
             <AboutContent>
                 <AboutTextContainer>
                     <AboutText>
@@ -73,6 +63,5 @@ function About() {
             </AboutContent>
         </AboutContainer>
     )
-}
-
+})
 export default About
