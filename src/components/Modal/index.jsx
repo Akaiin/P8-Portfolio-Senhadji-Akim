@@ -89,6 +89,12 @@ const ConfirmationContainer = styled.div`
 function Modal({ isOpen, setIsOpen }) {
     const formRef = useRef()
     const [confirmationMessage, setConfirmationMessage] = useState(null)
+    const [formData, setFormData] = useState({
+        user_name: '',
+        user_email: '',
+        message: '',
+    })
+    const [isConfirmationVisible, setIsConfirmationVisible] = useState(false)
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -97,29 +103,62 @@ function Modal({ isOpen, setIsOpen }) {
             .then((result) => {
                 console.log(result.text)
                 setConfirmationMessage('Message envoyé avec succès!')
+                setIsConfirmationVisible(true)
+                setFormData({
+                    user_name: '',
+                    user_email: '',
+                    message: '',
+                })
             })
             .catch((error) => {
                 console.log(error.text)
                 setConfirmationMessage('Une erreur est survenue')
+                setIsConfirmationVisible(true)
             })
+    }
+    const handleChange = (e) => {
+        const { name, value } = e.target
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }))
+    }
+    const handleCloseModal = () => {
+        setIsConfirmationVisible(false)
+        setIsOpen(false)
     }
 
     return (
         <ModalContainer $open={isOpen}>
             <ModalContent>
-                <CloseBtn onClick={() => setIsOpen(false)}>
+                <CloseBtn onClick={handleCloseModal}>
                     <i className="fa-solid fa-xmark"></i>
                 </CloseBtn>
                 <ModalContact>Contactez moi !</ModalContact>
                 <ModalForm ref={formRef} onSubmit={onSubmit}>
-                    <InputTextForm type="text" placeholder="Votre nom" name="user_name" />
-                    <InputEmailForm type="email" placeholder="Votre email" name="user_email" required />
-                    <TextAreaForm required name="message" />
+                    <InputTextForm
+                        type="text"
+                        placeholder="Votre nom"
+                        name="user_name"
+                        value={formData.user_name}
+                        onChange={handleChange}
+                    />
+                    <InputEmailForm
+                        type="email"
+                        placeholder="Votre email"
+                        name="user_email"
+                        value={formData.user_email}
+                        onChange={handleChange}
+                        required
+                    />
+                    <TextAreaForm required name="message" value={formData.message} onChange={handleChange} />
                     <SubmitBtn type="submit" />
                 </ModalForm>
-                <ConfirmationContainer>
-                    {confirmationMessage && <p>{confirmationMessage}</p>}{' '}
-                </ConfirmationContainer>
+                {isConfirmationVisible && (
+                    <ConfirmationContainer>
+                        <p>{confirmationMessage}</p>
+                    </ConfirmationContainer>
+                )}
             </ModalContent>
         </ModalContainer>
     )

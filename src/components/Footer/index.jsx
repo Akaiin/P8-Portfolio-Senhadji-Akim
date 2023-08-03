@@ -43,6 +43,7 @@ const SocialLink = styled.a`
 
 const SocialIcon = styled.i`
     font-size: 20px;
+    color: black;
 `
 
 const Footer = forwardRef(function Footer({}, ref) {
