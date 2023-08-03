@@ -11,26 +11,32 @@ const HeaderContainer = styled.header`
 const HeaderLogo = styled.img`
     width: 60px;
     padding-bottom: 20px;
+    @media screen and (max-width: 525px) {
+        display: none;
+    }
 `
 
 const HeaderNavLinks = styled.ul`
     display: flex;
     gap: 30px;
-    @media screen and (max-width: 490px) {
+    @media screen and (max-width: 600px) {
         gap: 20px;
     }
     @media screen and (max-width: 410px) {
         gap: 10px;
+    }
+    @media screen and (max-width: 425px) {
+        gap: 8px;
     }
 `
 const HeaderNavLink = styled.a`
     color: black;
     cursor: pointer;
     text-decoration: none;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 720px) {
         font-size: 12px;
     }
-    @media screen and (max-width: 490px) {
+    @media screen and (max-width: 600px) {
         font-size: 10px;
     }
 `
@@ -38,11 +44,14 @@ const HeaderNavLink = styled.a`
 const HeaderNavBtns = styled.div`
     display: flex;
     gap: 30px;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 720px) {
         gap: 20px;
     }
-    @media screen and (max-width: 490px) {
+    @media screen and (max-width: 525px) {
         gap: 10px;
+    }
+    @media screen and (max-width: 425px) {
+        gap: 5px;
     }
 `
 
@@ -52,11 +61,11 @@ const HeaderNavBtn = styled.button`
     border-radius: 5px;
     border: 1px solid var(--dark-grey, #c4c4c4);
     cursor: pointer;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 720px) {
         font-size: 12px;
         padding: 6px 8px;
     }
-    @media screen and (max-width: 490px) {
+    @media screen and (max-width: 470px) {
         font-size: 10px;
         padding: 4px 6px;
     }
