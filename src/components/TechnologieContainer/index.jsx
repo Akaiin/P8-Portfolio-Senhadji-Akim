@@ -6,6 +6,7 @@ import { forwardRef } from 'react'
 
 const TechnologiesSection = styled.section`
     padding-bottom: 200px;
+    height: 900px;
 `
 
 const TechnologiesContainer = styled.div`
