@@ -59,13 +59,13 @@ const Footer = forwardRef(function Footer({}, ref) {
             <FooterBtn onClick={() => setModal(true)}>Me contacter</FooterBtn>
             <Modal isOpen={modal} setIsOpen={setModal} />
             <FooterSocials>
-                <SocialLink href="https://github.com/Akaiin">
+                <SocialLink href="https://github.com/Akaiin" target="_blank">
                     <SocialIcon className="fa-brands fa-github"></SocialIcon>
                 </SocialLink>
-                <SocialLink>
+                <SocialLink target="_blank">
                     <SocialIcon className="fa-brands fa-twitter"></SocialIcon>
                 </SocialLink>
-                <SocialLink>
+                <SocialLink target="_blank">
                     <SocialIcon className="fa-brands fa-linkedin"></SocialIcon>
                 </SocialLink>
             </FooterSocials>
