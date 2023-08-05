@@ -23,7 +23,7 @@ const TechnologieImage = styled.img`
     }
 `
 
-const TechnologieName = styled.p`
+const TechnologieName = styled.h3`
     font-size: 40px;
     @media screen and (max-width: 1220px) {
         font-size: 32px;
@@ -40,7 +40,7 @@ const TechnologieName = styled.p`
 function Technologie({ image, title }) {
     return (
         <TechnologieContainer>
-            <TechnologieImage src={image}></TechnologieImage>
+            <TechnologieImage src={image} alt={title}></TechnologieImage>
             <TechnologieName>{title}</TechnologieName>
         </TechnologieContainer>
     )
