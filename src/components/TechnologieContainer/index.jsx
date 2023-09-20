@@ -12,7 +12,7 @@ const TechnologiesSection = styled.section`
 const TechnologiesContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 150px);
+    grid-template-rows: repeat(3, 150px);
     grid-gap: 50px;
     padding-left: 5%;
     padding-right: 5%;
